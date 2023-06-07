@@ -1,3 +1,12 @@
+import avatarMarkWebber from "./assets/images/avatar-mark-webber.webp";
+import avatarAngelaGray from "./assets/images/avatar-angela-gray.webp";
+import avatarJacobThompson from "./assets/images/avatar-jacob-thompson.webp";
+import avatarRizkyHasanuddin from "./assets/images/avatar-rizky-hasanuddin.webp";
+import avatarKimberlySmith from "./assets/images/avatar-kimberly-smith.webp";
+import avatarNathanPeterson from "./assets/images/avatar-nathan-peterson.webp";
+import avatarAnnaKim from "./assets/images/avatar-anna-kim.webp";
+import imageChess from "./assets/images/image-chess.webp";
+
 export type User = {
   name: string;
   avatar: string;
@@ -49,7 +58,7 @@ export const notificationsData: Data[] = [
     type: "post",
     from: {
       name: "Mark Webber",
-      avatar: "/images/avatar-mark-webber.webp",
+      avatar: avatarMarkWebber,
     },
     message: "reacted to your recent post",
     time: "1m ago",
@@ -59,7 +68,7 @@ export const notificationsData: Data[] = [
     type: "follow",
     from: {
       name: "Angela Gray",
-      avatar: "/images/avatar-angela-gray.webp",
+      avatar: avatarAngelaGray,
     },
     message: "followed you",
     time: "1m ago",
@@ -67,7 +76,7 @@ export const notificationsData: Data[] = [
   {
     from: {
       name: "Jacob Thompson",
-      avatar: "/images/avatar-jacob-thompson.webp",
+      avatar: avatarJacobThompson,
     },
     message: "has joined your group",
     time: "1m ago",
@@ -77,7 +86,7 @@ export const notificationsData: Data[] = [
   {
     from: {
       name: "Rizky Hasanuddin",
-      avatar: "/images/avatar-rizky-hasanuddin.webp",
+      avatar: avatarRizkyHasanuddin,
     },
     message: "sent you a private message",
     time: "1m ago",
@@ -89,18 +98,18 @@ export const notificationsData: Data[] = [
   {
     from: {
       name: "Kimberly Smith",
-      avatar: "/images/avatar-kimberly-smith.webp",
+      avatar: avatarKimberlySmith,
     },
     message: "commented on your picture",
     time: "1m ago",
     type: "picture",
-    url: "/images/image-chess.webp",
+    url: imageChess,
     isRead: true,
   },
   {
     from: {
       name: "Nathan Peterson",
-      avatar: "/images/avatar-nathan-peterson.webp",
+      avatar: avatarNathanPeterson,
     },
     message: "reacted to your recent post",
     time: "1m ago",
@@ -111,7 +120,7 @@ export const notificationsData: Data[] = [
   {
     from: {
       name: "Anna Kim",
-      avatar: "/images/avatar-anna-kim.webp",
+      avatar: avatarAnnaKim,
     },
     message: "left the group",
     time: "1m ago",

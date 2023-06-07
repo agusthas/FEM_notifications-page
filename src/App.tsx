@@ -1,9 +1,14 @@
+import { useMemo } from "react";
 import Notifications from "./components/notifications";
 import { notificationsData } from "./data";
 import { useListState } from "@mantine/hooks";
 
 export default function App() {
   const [values, handlers] = useListState(notificationsData);
+
+  const readCount = useMemo(() => {
+    return values.filter((item) => !item.isRead).length;
+  }, [values]);
 
   return (
     <main className="min-h-screen">
@@ -14,8 +19,8 @@ export default function App() {
           <div className="flex justify-between items-center mb-4">
             <h2 className="font-bold text-xl lg:text-2xl flex items-center">
               Notifications
-              <span className="bg-custom-blue inline-block text-white leading-none text-base lg:text-lg px-3 py-1 ml-2 rounded-md">
-                {values.filter((item) => !item.isRead).length}
+              <span className="bg-custom-blue inline-block text-white leading-none text-base lg:text-lg px-3 py-1 lg:py-0.5 ml-3 rounded-md">
+                {readCount}
               </span>
             </h2>
             <p
