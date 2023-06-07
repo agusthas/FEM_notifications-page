@@ -46,20 +46,24 @@ function NotificationItem(props: NotificationItemProps) {
 
         <div>
           <p className="text-dark-grayish-blue">
-            <strong className="font-bold text-very-dark-blue inline-block mr-1.5">
+            <a
+              href="#"
+              className="font-bold text-very-dark-blue inline-block mr-1.5 hover:text-custom-blue active:text-custom-blue"
+            >
               {props.from.name}
-            </strong>
+            </a>
             {props.message}
             {(props.type === "post" || props.type === "group") && (
-              <strong
+              <a
+                href="#"
                 className={cn(
-                  "font-bold ml-1.5",
+                  "font-bold ml-1.5 hover:text-custom-blue active:text-custom-blue",
                   props.type === "group" && "text-custom-blue"
                 )}
               >
                 {props.type === "post" && props.post}
                 {props.type === "group" && props.group}
-              </strong>
+              </a>
             )}
             {!props.isRead && (
               <span className="w-2 h-2 bg-custom-red inline-block rounded-full ml-1.5 align-middle mb-0.5"></span>
@@ -72,9 +76,15 @@ function NotificationItem(props: NotificationItemProps) {
         )}
         {props.type === "dm" && (
           <div className="col-start-2 ">
-            <p className="p-4 border rounded text-dark-grayish-blue">
+            <a
+              href="#"
+              className="block border rounded p-4 text-dark-grayish-blue hover:bg-light-grayish-blue-2"
+            >
               {props.content}
-            </p>
+            </a>
+            {/* <p className="p-4 border rounded text-dark-grayish-blue">
+              {props.content}
+            </p> */}
           </div>
         )}
       </div>
