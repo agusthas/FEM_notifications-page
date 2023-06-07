@@ -1,7 +1,10 @@
 import Notifications from "./components/notifications";
 import { notificationsData } from "./data";
+import { useListState } from "@mantine/hooks";
 
 export default function App() {
+  const [values, handlers] = useListState(notificationsData);
+
   return (
     <main className="min-h-screen">
       <h1 className="sr-only">Notifications Page</h1>
@@ -12,17 +15,27 @@ export default function App() {
             <h2 className="font-bold text-xl lg:text-2xl flex items-center">
               Notifications
               <span className="bg-custom-blue inline-block text-white leading-none text-base lg:text-lg px-3 py-1.5 ml-2 rounded-md">
-                3
+                {values.filter((item) => !item.isRead).length}
               </span>
             </h2>
-            <p className="text-dark-grayish-blue hover:text-custom-blue">
+            <p
+              className="text-dark-grayish-blue hover:text-custom-blue"
+              role="button"
+              onClick={() =>
+                handlers.apply((item) => ({ ...item, isRead: true }))
+              }
+            >
               Mark all as read
             </p>
           </div>
 
           <Notifications>
-            {notificationsData.map((item, index) => (
-              <Notifications.Item key={index} {...item} />
+            {values.map((item, index) => (
+              <Notifications.Item
+                key={index}
+                onClick={() => handlers.setItemProp(index, "isRead", true)}
+                {...item}
+              />
             ))}
           </Notifications>
         </div>

@@ -17,7 +17,9 @@ export default function Notifications({
   );
 }
 
-type NotificationItemProps = Data;
+type NotificationItemProps = Data & {
+  onClick: () => void;
+};
 
 function NotificationItem(props: NotificationItemProps) {
   return (
@@ -26,6 +28,7 @@ function NotificationItem(props: NotificationItemProps) {
         "px-2 py-4 lg:px-4 rounded-md",
         !props.isRead && "bg-very-light-grayish-blue"
       )}
+      onClick={props.onClick}
     >
       <div
         className={cn(
